@@ -1,0 +1,278 @@
+body {
+    background: #0F2027;
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+}
+
+.join-btn,
+.linkUrl {
+    position: fixed;
+    margin-top: 0;
+    margin-left: -100px;
+    font-size: 18px;
+    padding: 17px 40px;
+    transition: .8s;
+    border-radius: 5px;
+    /* z-index: -1; */
+}
+
+#join-btn {
+    top: 53%;
+    left: 47%;
+}
+
+#join-btn1,
+#join-btns {
+    top: 50%;
+    left: 43%;
+}
+
+#join-btn2{
+    top: 50%;
+    left: 58%;
+}
+
+#linkUrl {
+    top: 35%;
+    left: 43%;
+    width: 320px;
+    background-color: #9bcbcd;
+}
+#linkname {
+    top: 20%;
+    left: 43%;
+    width: 320px;
+    background-color: #9bcbcd;
+}
+
+.start-video-session {
+    font-size: 18px;
+    margin: 60px;
+    padding: 20px 35px;
+    border-radius: 10px;
+    transition: .8s;
+}
+
+.start-video-session a {
+    color: white;
+    text-decoration: none;
+}
+
+.start-video-session:hover,
+.join-btn:hover {
+    background-color: #3c53c6;
+    box-shadow: 0 0 5px 6px #b4c3ee;
+}
+
+
+#video-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    height: 90vh;
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.video-container {
+    max-height: 100%;
+    border: 2px solid #6b79c3;
+    background-color: #0b151a;
+}
+
+.video-player {
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    border: none;
+    background-color: #6b79c3;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#stream-controls {
+    display: none;
+    justify-content: center;
+    margin-top: 0.5em;
+}
+
+#leave-btn {
+    background-color: red;
+}
+
+@media screen and (max-width:1400px) {
+    #video-streams {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .join-btn,
+    .linkUrl {
+        position: fixed;
+        margin-left: -109px;
+        margin-top: 0;
+        font-size: 14px;
+        padding: 13px 17px;
+        transition: .8s;
+        border-radius: 5px;
+    }
+
+    #join-btn1 {
+        top: 50%;
+        left: 43%;
+    }
+
+    #join-btn2 {
+        top: 50%;
+        left: 81%;
+    }
+
+    #linkUrl {
+        top: 37%;
+        left: 43%;
+        width: 210px;
+        background-color: #9bcbcd;
+    }
+    #linkname {
+        top: 24%;
+        left: 43%;
+        width: 210px;
+        background-color: #9bcbcd;
+    }
+    button {
+        padding: 4px 11px;
+        font-size: 15px;
+        margin: 5px 3px;
+    }
+}
+
+/* Tablet Device: 768px */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+    .join-btn,
+    .linkUrl {
+        position: fixed;
+        margin-left: -109px;
+        margin-top: 0;
+        font-size: 15px;
+        padding: 15px 23px;
+        transition: .8s;
+        border-radius: 5px;
+    }
+
+    #join-btn1 {
+        top: 50%;
+        left: 43%;
+    }
+
+    #join-btn2 {
+        top: 50%;
+        left: 63%;
+    }
+
+    #linkUrl {
+        top: 37%;
+        left: 43%;
+        width: 250px;
+        background-color: #9bcbcd;
+    }
+    #linkname {
+        top: 24%;
+        left: 43%;
+        width: 250px;
+        background-color: #9bcbcd;
+    }
+     button {
+         padding: 10px 20px;
+         font-size: 16px;
+         margin: 5px 2px;
+     }
+}
+
+/* @media only screen and (max-width: 991px) {
+
+    .join-btn,
+    .linkUrl {
+        position: fixed;
+        margin-left: -109px;
+        margin-top: 0;
+        font-size: 14px;
+        padding: 13px 17px;
+        transition: .8s;
+        border-radius: 5px;
+    }
+
+    #join-btn1 {
+        top: 50%;
+        left: 43%;
+    }
+
+    #join-btn2 {
+        top: 50%;
+        left: 81%;
+    }
+
+    #linkUrl {
+        top: 37%;
+        left: 40%;
+        width: 230px;
+        background-color: #9bcbcd;
+    }
+    #linkname {
+        top: 24%;
+        left: 43%;
+        width: 270px;
+        background-color: #9bcbcd;
+    }
+} */
+
+/* Medium Device: 1200px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .join-btn,
+    .linkUrl {
+        position: fixed;
+        margin-left: -109px;
+        margin-top: 0;
+        font-size: 15px;
+        padding: 15px 23px;
+        transition: .8s;
+        border-radius: 5px;
+    }
+
+    #join-btn1 {
+        top:50%;
+        left: 43%;
+    }
+
+    #join-btn2 {
+        top: 50%;
+        left: 60%;
+    }
+
+    #linkUrl {
+        top: 37%;
+        left: 43%;
+        width: 270px;
+        background-color: #9bcbcd;
+    }
+     #linkname {
+         top: 24%;
+         left: 43%;
+         width: 270px;
+         background-color: #9bcbcd;
+     }
+     button {
+         padding: 10px 20px;
+         font-size: 16px;
+         margin: 5px 2px;
+     }
+}
