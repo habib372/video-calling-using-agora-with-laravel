@@ -9,8 +9,6 @@
 
     <link rel='stylesheet' type='text/css' media='screen' href="{{ asset('agoraVideo/main.css') }}">
     <link rel="shortcut icon" href="{{ asset('agoraVideo/video-session.png')}}" rel="apple-touch-icon">
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-
 
 <body >
     <input type="text" class="linkUrl" id="linkUrl" value="" placeholder="Enter Link">

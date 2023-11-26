@@ -6,7 +6,6 @@
     <title>video Stream</title>
     <link rel='stylesheet' type='text/css' media='screen' href="{{ asset('agoraVideo/main.css') }}">
     <link rel="shortcut icon" href="{{ asset('agoraVideo/video-session.png')}}" rel="apple-touch-icon">
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"  crossorigin="anonymous"></script>
 
 </head>
