@@ -17,8 +17,21 @@ use App\Http\Controllers\MeetingController;
 
 
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    return "/clear-cache";
+});
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
