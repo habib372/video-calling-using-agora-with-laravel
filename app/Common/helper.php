@@ -1,18 +1,18 @@
 <?php
 
-function prx($arr)
-{
-    echo "<pre>";
-    print_r($arr);
-    die();
-}
+// function prx($arr)
+// {
+//     echo "<pre>";
+//     print_r($arr);
+//     die();
+// }
 
-function cretaAgoraProject($name)
+function createAgoraProject($name)
 {
     // Customer ID
-    $customerKey = env('customerKey');
+    $customerKey = env('CUSTOMER_KEY');
     // Customer secret
-    $customerSecret = env('customerSecret');
+    $customerSecret = env('CUSTOMER_SECRET');
     // Concatenate customer key and customer secret
     $credentials = $customerKey . ":" . $customerSecret;
 
@@ -20,9 +20,6 @@ function cretaAgoraProject($name)
     $base64Credentials = base64_encode($credentials);
     // Create authorization header
     $arr_header = "Authorization: Basic " . $base64Credentials;
-
-    $curl = curl_init();
-
 
     $curl = curl_init();
 
@@ -35,9 +32,7 @@ function cretaAgoraProject($name)
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS => '{"name": "' . $name . '",
-  "enable_sign_key": true
- }',
+        CURLOPT_POSTFIELDS => '{"name": "' . $name . '","enable_sign_key": true}',
         CURLOPT_HTTPHEADER => array(
             $arr_header,
             'Content-Type: application/json'
@@ -47,9 +42,8 @@ function cretaAgoraProject($name)
     $response = curl_exec($curl);
 
     curl_close($curl);
-    // prx($response);
+
     $result = json_decode($response);
-    // prx($result);
     return $result;
 }
 
@@ -69,12 +63,12 @@ function createToken($appId, $appCertificate, $channelName)
         CURLOPT_POSTFIELDS => array('appId' => $appId, 'appCertificate' => $appCertificate, 'channelName' => $channelName),
     ));
 
-
     $response = curl_exec($curl);
 
     curl_close($curl);
     return $response;
 }
+
 
 function generateRandomString($length = 7)
 {

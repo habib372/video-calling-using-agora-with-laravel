@@ -24,7 +24,7 @@ class MeetingController extends Controller
 
         if(!isset($meeting->id)){
             $name       =   'agora'. rand(1111,9999);
-            $meetingData = cretaAgoraProject($name);
+            $meetingData = createAgoraProject($name);
             if(isset($meetingData->project->id)){
                 $meeting            =    new UserMeeting();
                 $meeting->user_id   =   Auth::User()->id;
@@ -50,8 +50,6 @@ class MeetingController extends Controller
             Session::put('meeting',$meeting->url);
         }
         return redirect('joinMeeting/'.$meeting->url);
-
-
     }
 
     public function joinMeeting($url='')
@@ -59,7 +57,7 @@ class MeetingController extends Controller
         $meeting = UserMeeting::where('url',$url)->first();
 
         if(isset($meeting->id)){
-// Meeting exist
+    // Meeting exist
             $meeting->app_id = trim($meeting->app_id);
             $meeting->appCertificate = trim($meeting->appCertificate);
             $meeting->channel = trim($meeting->channel);

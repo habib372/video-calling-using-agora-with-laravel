@@ -72,6 +72,12 @@
           // Meeting start
           $('#join-btn').click();
           document.getElementById('stream-controls').style.display='flex';
+          var joinBtns = document.getElementsByClassName('join-btn');
+          for (var i = 0; i < joinBtns.length; i++) {
+            joinBtns[i].style.zIndex = '-1';
+          }
+          document.getElementById('linkUrl').style.zIndex = '-1';
+          document.getElementById('linkname').style.zIndex = '-1';
         }else if(data.data.status == 3){
           // Meeting entry denied by host
           alert('Host has been deneid your entry');
@@ -123,6 +129,7 @@
           joinBtns[i].style.zIndex = "";
       }
       document.getElementById('linkUrl').style.zIndex = '';
+      document.getElementById('linkname').style.zIndex = '';
       document.getElementById('join-btn').style.display = 'none';
    })
 
