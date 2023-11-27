@@ -131,6 +131,16 @@
       document.getElementById('linkUrl').style.zIndex = '';
       document.getElementById('linkname').style.zIndex = '';
       document.getElementById('join-btn').style.display = 'none';
+
+      @auth
+        // Flash a session message
+        @php
+            session()->flash('status', 'Successfully redirected after authentication!');
+        @endphp
+        // Redirect to the specified URL
+       window.location.href = '{{ route("meetingUser") }}';
+
+      @endauth
    })
 
   function saveUserName(name){

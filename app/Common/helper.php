@@ -10,9 +10,9 @@
 function createAgoraProject($name)
 {
     // Customer ID
-    $customerKey = env('CUSTOMER_KEY');
+    $customerKey = 'e3027ba6db614bebab0fbde452dc98c1';
     // Customer secret
-    $customerSecret = env('CUSTOMER_SECRET');
+    $customerSecret = '86e10a67e4aa4758bb387f0f943a47fb';
     // Concatenate customer key and customer secret
     $credentials = $customerKey . ":" . $customerSecret;
 
