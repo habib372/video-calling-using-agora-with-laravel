@@ -7,7 +7,6 @@
     <link rel='stylesheet' type='text/css' media='screen' href="{{ asset('agoraVideo/main.css') }}">
     <link rel="shortcut icon" href="{{ asset('agoraVideo/video-session.png')}}" rel="apple-touch-icon">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"  crossorigin="anonymous"></script>
-    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
 </head>
 <body>
@@ -45,6 +44,7 @@
 </body>
 <script src="{{asset('agoraVideo/AgoraRTC_N-4.7.3.js')}}" ></script>
 <script src="{{asset('agoraVideo/main.js')}}" ></script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 
   <script>
     // Pusher web socket initialise
@@ -53,7 +53,7 @@
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('3f1fe2c493a84162a364', {
+    var pusher = new Pusher('App-Key', {
       cluster: 'ap2'
     });
 
