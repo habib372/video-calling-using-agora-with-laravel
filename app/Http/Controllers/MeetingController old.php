@@ -20,26 +20,25 @@ class MeetingController extends Controller
     public function createMeeting()
     {
 
-        // $meeting = Auth::User()->getUserMeetingInfo()->first();
+        $meeting = Auth::User()->getUserMeetingInfo()->first();
 
-        // if(!isset($meeting->id)){
-        //     $name       =   'agora'. rand(1111,9999);
-        //     $meetingData = createAgoraProject($name);
-        //     if(isset($meetingData->project->id)){
-        //         $meeting            =    new UserMeeting();
-        //         $meeting->user_id   =   Auth::User()->id;
-        //         $meeting->app_id    =   $meetingData->project->vendor_key;
-        //         $meeting->appCertificate   =   $meetingData->project->sign_key;
-        //         $meeting->channel   =    $meetingData->project->name;
-        //         $meeting->uid       =   rand(11111,99999);
-        //         $meeting->save();
+        if(!isset($meeting->id)){
+            $name       =   'agora'. rand(1111,9999);
+            $meetingData = createAgoraProject($name);
+            if(isset($meetingData->project->id)){
+                $meeting            =    new UserMeeting();
+                $meeting->user_id   =   Auth::User()->id;
+                $meeting->app_id    =   $meetingData->project->vendor_key;
+                $meeting->appCertificate   =   $meetingData->project->sign_key;
+                $meeting->channel   =    $meetingData->project->name;
+                $meeting->uid       =   rand(11111,99999);
+                $meeting->save();
 
-        //     }else{
-        //         echo"Project not created";
-        //     }
-        // }
-
-        $meeting    =   UserMeeting::where('user_id', 1)->first();
+            }else{
+                echo"Project not created";
+            }
+        }
+        $meeting    =   Auth::User()->getUserMeetingInfo()->first();
         $token      =   createToken($meeting->app_id , $meeting->appCertificate ,$meeting->channel ) ;
         $meeting->token = $token ;
         $meeting->url = generateRandomString();
@@ -47,7 +46,7 @@ class MeetingController extends Controller
         $meeting->save();
 
         // Meeting HOst
-        if(Auth::user() && $meeting->user_id == 1){
+        if(Auth::User()->id == $meeting->user_id){
             Session::put('meeting',$meeting->url);
         }
         return redirect('joinMeeting/'.$meeting->url);
@@ -64,12 +63,12 @@ class MeetingController extends Controller
             $meeting->channel = trim($meeting->channel);
             $meeting->token = trim($meeting->token);
 
-            if(Auth::user() && $meeting->user_id==1){
+            if(Auth::User() && Auth::User()->id == $meeting->user_id){
                 // meeting create
                 $channel =  $meeting->channel;
                 $event   = $meeting->event;
             }else{
-                if(!Auth::user()){
+                if(!Auth::User()){
                 $random_user = rand(111111,999999);
                 Session::put('random_user',$random_user);
                 $event = generateRandomString(5);
@@ -80,7 +79,7 @@ class MeetingController extends Controller
                     $event = generateRandomString(5);
                     $this->createEntry($meeting->user_id , Auth::User()->id , $meeting->url,$event ,$meeting->channel);
                     $channel =  $meeting->channel;
-                    Session::put('random_user',Auth::user()->id);
+                    Session::put('random_user',Auth::User()->id);
                 }
 
             }

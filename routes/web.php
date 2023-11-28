@@ -35,8 +35,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/joinMeeting/{url?}', [MeetingController::class, 'joinMeeting'])->name('joinMeeting');
 Auth::routes();
+
+Route::get('/joinMeeting/{url?}', [MeetingController::class, 'joinMeeting'])->name('joinMeeting');
 
 Route::get('/home', [MeetingController::class, 'meetingUser'])->name('meetingUser');
 Route::get('/createMeeting', [MeetingController::class, 'createMeeting'])->name('createMeeting');
